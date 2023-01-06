@@ -12,3 +12,9 @@ class BookList(generic.ListView):
 class BookDetail(generic.DetailView):
     model = Book
     template_name = 'book/book_detail.html'
+
+
+class BookCreatePost(generic.CreateView):
+    model = Book
+    fields = ['title', 'description', 'author', 'price', ]
+    template_name = 'book/create_post.html'
