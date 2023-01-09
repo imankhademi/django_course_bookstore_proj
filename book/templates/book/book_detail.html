@@ -12,26 +12,37 @@
                     <div class="row w-sm-75 w-100">
                         <div class="col-xs-12 col-md-3 d-flex justify-content-center">
                             <div>
-                                <img src="https://newcdn.fidibo.com/images/books/65579_50411_normal.jpg"
-                                     class="img-fluid rounded-start" alt="...">
+                                {% if book.cover %}
+                                    <img src="{{ book.cover.url }}"
+                                         class="img-fluid rounded-start shadow" alt="...">
+                                {% endif %}
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-6 text-center text-md-end mt-md-1 mt-4">
                             <h1>{{ book.title }}</h1>
-                            <h5 class="small my-1"><span class="text-muted">نویسنده: </span>{{ book.author}}</h5>
+                            <h5 class="small my-1"><span class="text-muted">نویسنده: </span>{{ book.author }}</h5>
                         </div>
                         <div class="col-xs-12 col-md-3 d-flex flex-column">
                             <h3 class="align-self-center pt-2 text-muted align-self-md-end">
-                                {{book.price}} تومان
+                                {{ book.price }} تومان
                             </h3>
+
                         </div>
                     </div>
                 </div>
-
                 <div class="d-flex justify-content-center">
                     <div class="my-3 p-5 w-sm-75 w-100">
-                       {{ book.description|linebreaks }}
+                        {{ book.description|linebreaks }}
                     </div>
+                </div>
+                <div align="center">
+                    <a href="{% url 'book_update' book.id %}">
+                        <button type="submit" class="btn btn-warning">ویرایش</button>
+                    </a>
+
+                    <a href="{% url 'book_delete' book.id %}">
+                        <button type="submit" class="btn btn-danger">حذف</button>
+                    </a>
                 </div>
 
                 <div class="d-flex justify-content-center">
@@ -85,6 +96,7 @@
                                           placeholder="نظر خود را اینجا وارد کنید."></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">ارسال</button>
+
                         </form>
                     </div>
                 </div>

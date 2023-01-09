@@ -17,13 +17,13 @@ class BookDetail(generic.DetailView):
 
 class BookCreatePost(generic.CreateView):
     model = Book
-    fields = ['title', 'description', 'author', 'price', ]
+    fields = ['title', 'description', 'author', 'price', 'cover', ]
     template_name = 'book/create_post.html'
 
 
 class BookUpdatePost(generic.UpdateView):
     model = Book
-    fields = ['title', 'description', 'author', ]
+    fields = ['title', 'description', 'author', 'cover', ]
     template_name = 'book/update_post.html'
 
 
