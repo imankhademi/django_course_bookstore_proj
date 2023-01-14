@@ -9,6 +9,7 @@ class Book(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     cover = models.ImageField(upload_to='covers/', blank=True)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
