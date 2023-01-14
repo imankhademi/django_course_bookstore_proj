@@ -14,7 +14,7 @@
                         <div class="col-md-4">
                             {% if book.cover %}
                                 <a href="{% url 'book_detail' book.id %}">
-                                    <img src="{{ book.cover.url }}" class="img-fluid rounded-start" alt="...">
+                                    <img src="{{ book.cover.url }}" class="img-fluid rounded-start mt-3" alt="...">
                                 </a>
                             {% else %}
                                 <img src="media/covers/images.png" class="img-fluid rounded-start" alt="...">
